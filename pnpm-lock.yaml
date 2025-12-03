@@ -40,6 +40,9 @@ importers:
       '@emotion/styled':
         specifier: ^11.12.0
         version: 11.14.1(@emotion/react@11.14.0(@types/react@18.3.27)(react@19.0.0))(@types/react@18.3.27)(react@19.0.0)
+      '@iconify/react':
+        specifier: ^6.0.2
+        version: 6.0.2(react@19.0.0)
       '@tanstack/react-table':
         specifier: ^8.19.3
         version: 8.21.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -1507,6 +1510,14 @@ packages:
   '@humanwhocodes/object-schema@2.0.3':
     resolution: {integrity: sha512-93zYdMES/c1D69yZiKDBj0V24vqNzB/koF26KPaagAfd3P/4gUlh3Dys5ogAK+Exi9QyzlD8x/08Zt7wIKcDcA==}
     deprecated: Use @eslint/object-schema instead
+
+  '@iconify/react@6.0.2':
+    resolution: {integrity: sha512-SMmC2sactfpJD427WJEDN6PMyznTFMhByK9yLW0gOTtnjzzbsi/Ke/XqsumsavFPwNiXs8jSiYeZTmLCLwO+Fg==}
+    peerDependencies:
+      react: '>=16'
+
+  '@iconify/types@2.0.0':
+    resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
 
   '@istanbuljs/load-nyc-config@1.1.0':
     resolution: {integrity: sha512-VjeHSlIzpv/NyD3N0YuHfXOPDIixcA1q2ZV98wsMqcYlPmv2n3Yb2lYP9XMElnaFVXg5A7YLTeLu6V84uQDjmQ==}
@@ -8314,6 +8325,13 @@ snapshots:
   '@humanwhocodes/module-importer@1.0.1': {}
 
   '@humanwhocodes/object-schema@2.0.3': {}
+
+  '@iconify/react@6.0.2(react@19.0.0)':
+    dependencies:
+      '@iconify/types': 2.0.0
+      react: 19.0.0
+
+  '@iconify/types@2.0.0': {}
 
   '@istanbuljs/load-nyc-config@1.1.0':
     dependencies:

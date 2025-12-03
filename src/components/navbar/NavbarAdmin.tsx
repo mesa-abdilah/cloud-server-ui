@@ -1,18 +1,24 @@
 /* eslint-disable */
 // Chakra Imports
 import { Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Flex, Link, Text, useColorModeValue } from '@chakra-ui/react';
+import React from 'react';
+import { SidebarContext } from 'contexts/SidebarContext';
 import { useState, useEffect } from 'react';
 import AdminNavbarLinks from 'components/navbar/NavbarLinksAdmin';
+import { useLocation } from 'react-router-dom';
+import routes from 'routes';
 
 export default function AdminNavbar(props: {
-	secondary: boolean;
-	message: string|boolean;
-	brandText: string;
-	logoText: string;
-	fixed: boolean;
-	onOpen: (...args: any[]) => any;
+    secondary: boolean;
+    message: string|boolean;
+    brandText: string;
+    logoText: string;
+    fixed: boolean;
+    onOpen: (...args: any[]) => any;
 }) {
-	const [ scrolled, setScrolled ] = useState(false);
+    const [ scrolled, setScrolled ] = useState(false);
+    const { toggleSidebar } = React.useContext(SidebarContext) as any;
+    const location = useLocation();
 
 	useEffect(() => {
 		window.addEventListener('scroll', changeNavbar);
@@ -22,7 +28,22 @@ export default function AdminNavbar(props: {
 		};
 	});
 
-	const { secondary,  brandText } = props;
+    const { secondary } = props;
+
+    const derivedBrandText = React.useMemo(() => {
+        const path = location.pathname;
+        for (let i = 0; i < routes.length; i++) {
+            const full = routes[i].layout + (routes[i].path ?? '');
+            if (path.indexOf(full) !== -1) {
+                return routes[i].name;
+            }
+        }
+        return props.brandText;
+    }, [location.pathname, props.brandText]);
+
+    useEffect(() => {
+        console.log('[NavbarAdmin] pathname:', location.pathname, 'brandText:', props.brandText, 'derived:', derivedBrandText);
+    }, [location.pathname, props.brandText, derivedBrandText]);
 
 	// Here are all the props that may change depending on navbar's type or state.(secondary, variant, scrolled)
 	let mainText = useColorModeValue('navy.700', 'white');
@@ -68,24 +89,24 @@ export default function AdminNavbar(props: {
 			lineHeight='25.6px'
 			mx='auto'
 			mt={secondaryMargin}
-			pb='8px'
+			pb='18px'
 			right={{ base: '12px', md: '30px', lg: '30px', xl: '30px' }}
 			px={{
 				sm: paddingX,
 				md: '10px'
 			}}
 			ps={{
-				xl: '12px'
+				xl: '20px'
 			}}
-			pt='8px'
-			top={{ base: '12px', md: '16px', xl: '18px' }}
-			w={{
-				base: 'calc(100vw - 6%)',
-				md: 'calc(100vw - 8%)',
-				lg: 'calc(100vw - 6%)',
-				xl: 'calc(100vw - 350px)',
-				'2xl': 'calc(100vw - 365px)'
-			}}>
+			pt='18px'
+			top={{ base: '0px', md: '0px', xl: '0px' }}
+      w={{
+          base: 'calc(100vw - 6%)',
+          md: 'calc(100vw - 8%)',
+          lg: 'calc(100vw - 6%)',
+          xl: toggleSidebar ? 'calc(100vw - 140px)' : 'calc(100vw - 350px)',
+          '2xl': toggleSidebar ? 'calc(100vw - 155px)' : 'calc(100vw - 365px)'
+      }}>
 			<Flex
 				w='100%'
 				flexDirection={{
@@ -104,7 +125,7 @@ export default function AdminNavbar(props: {
 
 						<BreadcrumbItem color={secondaryText} fontSize='sm'>
 							<BreadcrumbLink href='#' color={secondaryText}>
-								{brandText}
+                                {derivedBrandText}
 							</BreadcrumbLink>
 						</BreadcrumbItem>
 					</Breadcrumb>
@@ -125,7 +146,7 @@ export default function AdminNavbar(props: {
 						_focus={{
 							boxShadow: 'none'
 						}}>
-						{brandText}
+                        {derivedBrandText}
 					</Link>
 				</Box>
 				<Box ms='auto' w={{ sm: '100%', md: 'unset' }}>

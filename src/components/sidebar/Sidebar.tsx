@@ -19,9 +19,12 @@ import { Scrollbars } from 'react-custom-scrollbars-2';
 
 // Assets
 import { IoMenuOutline } from 'react-icons/io5';
+import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
+import { SidebarContext } from 'contexts/SidebarContext';
 
 function Sidebar(props: { routes: RoutesType[]; [x: string]: any }) {
-	const { routes } = props;
+    const { routes } = props;
+    const { toggleSidebar, setToggleSidebar } = React.useContext(SidebarContext) as any;
 
 	let variantChange = '0.2s linear';
 	let shadow = useColorModeValue('14px 17px 40px 4px rgba(112, 144, 176, 0.08)', 'unset');
@@ -31,25 +34,34 @@ function Sidebar(props: { routes: RoutesType[]; [x: string]: any }) {
 
 	// SIDEBAR
 	return (
-		<Box display={{ sm: 'none', xl: 'block' }} position='fixed' minH='100%'>
-			<Box
-				bg={sidebarBg}
-				transition={variantChange}
-				w='300px'
-				h='100vh'
-				m={sidebarMargins}
-				minH='100%'
-				overflowX='hidden'
-				boxShadow={shadow}>
-				<Scrollbars
-					autoHide
-					renderTrackVertical={renderTrack}
-					renderThumbVertical={renderThumb}
-					renderView={renderView}>
-					<Content routes={routes} />
-				</Scrollbars>
-			</Box>
-		</Box>
+    <Box display={{ sm: 'none', xl: 'block' }} position='fixed' minH='100%'>
+      <Box
+        bg={sidebarBg}
+        transition={variantChange}
+        w={toggleSidebar ? '80px' : '300px'}
+        h='100vh'
+        m={sidebarMargins}
+        minH='100%'
+        overflow='hidden'
+        boxShadow={shadow}>
+        <Flex px='10px' pt='10px' pb='0' justify='flex-end'>
+          <Icon
+            as={(toggleSidebar ? MdChevronRight : MdChevronLeft) as any}
+            w='24px'
+            h='24px'
+            _hover={{ cursor: 'pointer' }}
+            onClick={() => setToggleSidebar && setToggleSidebar(!toggleSidebar)}
+          />
+        </Flex>
+        <Scrollbars
+          autoHide
+          renderTrackVertical={renderTrack}
+          renderThumbVertical={renderThumb}
+          renderView={renderView}>
+          <Content routes={routes} collapsed={toggleSidebar} />
+        </Scrollbars>
+      </Box>
+    </Box>
 	);
 }
 
@@ -68,15 +80,15 @@ export function SidebarResponsive(props: { routes: RoutesType[] }) {
 	return (
 		<Flex display={{ sm: 'flex', xl: 'none' }} alignItems='center'>
 			<Flex ref={btnRef} w='max-content' h='max-content' onClick={onOpen}>
-                <Icon
-                    as={IoMenuOutline as any}
-                    color={menuColor}
-                    my='auto'
-                    w='20px'
-                    h='20px'
-                    me='10px'
-                    _hover={{ cursor: 'pointer' }}
-                />
+				<Icon
+					as={IoMenuOutline as any}
+					color={menuColor}
+					my='auto'
+					w='20px'
+					h='20px'
+					me='10px'
+					_hover={{ cursor: 'pointer' }}
+				/>
 			</Flex>
 			<Drawer
 				isOpen={isOpen}

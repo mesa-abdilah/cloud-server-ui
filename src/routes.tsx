@@ -1,72 +1,67 @@
-import { Icon } from '@chakra-ui/react';
-import {
-  MdBarChart,
-  MdPerson,
-  MdHome,
-  MdLock,
-  MdOutlineShoppingCart,
-} from 'react-icons/md';
-
+import { Icon as Iconify } from '@iconify/react';
 // Admin Imports
 import MainDashboard from 'views/admin/default';
 import NFTMarketplace from 'views/admin/marketplace';
 import Profile from 'views/admin/profile';
 import DataTables from 'views/admin/dataTables';
-import RTL from 'views/admin/rtl';
-
-// Auth Imports
-import SignInCentered from 'views/auth/signIn';
+import Compute from 'views/admin/compute';
 
 const routes = [
   {
-    name: 'Main Dashboard',
+    name: 'Dashboard',
     layout: '/admin',
     path: '/default',
-    icon: <Icon as={MdHome as any} width="20px" height="20px" color="inherit" />,
+    icon: <Iconify icon="duo-icons:dashboard" width={24} height={24} style={{ color: 'inherit' }} />,
     component: <MainDashboard />,
+    hidden: false,
   },
   {
-    name: 'NFT Marketplace',
+    name: 'Compute',
     layout: '/admin',
-    path: '/nft-marketplace',
-    icon: (
-      <Icon
-        as={MdOutlineShoppingCart as any}
-        width="20px"
-        height="20px"
-        color="inherit"
-      />
-    ),
-    component: <NFTMarketplace />,
-    secondary: true,
+    path: '/compute',
+    icon: <Iconify icon="uil:server" width={24} height={24} style={{ color: 'inherit' }} />,
+    component: <Compute />,
+    hidden: false,
   },
   {
-    name: 'Data Tables',
+    name: 'Network',
     layout: '/admin',
-    icon: <Icon as={MdBarChart as any} width="20px" height="20px" color="inherit" />,
-    path: '/data-tables',
+    icon: <Iconify icon="iconoir:network" width={24} height={24} style={{ color: 'inherit' }} />,
+    path: '/network',
     component: <DataTables />,
+    hidden: false,
+  },
+  {
+    name: 'Volume',
+    layout: '/admin',
+    path: '/volume',
+    icon: <Iconify icon="hugeicons:hard-drive" width={24} height={24} style={{ color: 'inherit' }} />,
+    component: <DataTables />,
+    hidden: false,
+  },
+  {
+    name: 'Object Storage',
+    layout: '/admin',
+    path: '/object-storage',
+    icon: <Iconify icon="streamline-plump:database" width={24} height={24} style={{ color: 'inherit' }} />,
+    component: <DataTables />,
+    hidden: false,
+  },
+  {
+    name: 'System Monitoring',
+    layout: '/admin',
+    path: '/system-monitoring-logging',
+    icon: <Iconify icon="carbon:cloud-monitoring" width={24} height={24} style={{ color: 'inherit' }} />,
+    component: <DataTables />,
+    hidden: false,
   },
   {
     name: 'Profile',
     layout: '/admin',
     path: '/profile',
-    icon: <Icon as={MdPerson as any} width="20px" height="20px" color="inherit" />,
+    icon: <Iconify icon="iconoir:user" width={24} height={24} style={{ color: 'inherit' }} />,
     component: <Profile />,
-  },
-  {
-    name: 'Sign In',
-    layout: '/auth',
-    path: '/sign-in',
-    icon: <Icon as={MdLock as any} width="20px" height="20px" color="inherit" />,
-    component: <SignInCentered />,
-  },
-  {
-    name: 'RTL Admin',
-    layout: '/rtl',
-    path: '/rtl-default',
-    icon: <Icon as={MdHome as any} width="20px" height="20px" color="inherit" />,
-    component: <RTL />,
+    hidden: true,
   },
 ];
 
