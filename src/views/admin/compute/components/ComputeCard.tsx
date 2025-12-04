@@ -64,7 +64,7 @@ export default function ComputeCard(props: ComputeCardProps) {
               {data.name}
             </Text>
             <Text color={textColorSecondary} fontSize='sm' fontWeight='500'>
-              {data.id}
+              {data.os}
             </Text>
           </Box>
         </HStack>

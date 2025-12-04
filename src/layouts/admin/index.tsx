@@ -14,7 +14,7 @@ export default function Dashboard(props: { [x: string]: any }) {
   const { ...rest } = props;
   // states and functions
   const [fixed] = useState(false);
-  const [toggleSidebar, setToggleSidebar] = useState(false);
+  const [toggleSidebar, setToggleSidebar] = useState(true);
   // functions for changing the states from components
   const getRoute = () => {
     return window.location.pathname !== '/admin/full-screen-maps';

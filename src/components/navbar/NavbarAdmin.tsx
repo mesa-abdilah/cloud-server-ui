@@ -90,7 +90,7 @@ export default function AdminNavbar(props: {
 			mx='auto'
 			mt={secondaryMargin}
 			pb='18px'
-			right={{ base: '12px', md: '30px', lg: '30px', xl: '30px' }}
+			right={{ base: '5px', md: '20px', lg: '20px', xl: '20px' }}
 			px={{
 				sm: paddingX,
 				md: '10px'
@@ -125,7 +125,7 @@ export default function AdminNavbar(props: {
 
 						<BreadcrumbItem color={secondaryText} fontSize='sm'>
 							<BreadcrumbLink href='#' color={secondaryText}>
-                                {derivedBrandText}
+                {derivedBrandText}
 							</BreadcrumbLink>
 						</BreadcrumbItem>
 					</Breadcrumb>
@@ -146,7 +146,7 @@ export default function AdminNavbar(props: {
 						_focus={{
 							boxShadow: 'none'
 						}}>
-                        {derivedBrandText}
+            {derivedBrandText}
 					</Link>
 				</Box>
 				<Box ms='auto' w={{ sm: '100%', md: 'unset' }}>

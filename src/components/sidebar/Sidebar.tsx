@@ -23,8 +23,9 @@ import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 import { SidebarContext } from 'contexts/SidebarContext';
 
 function Sidebar(props: { routes: RoutesType[]; [x: string]: any }) {
-    const { routes } = props;
-    const { toggleSidebar, setToggleSidebar } = React.useContext(SidebarContext) as any;
+  const { routes } = props;
+  console.log('[SidebarContext]:', React.useContext(SidebarContext) as any);
+  const { toggleSidebar, setToggleSidebar } = React.useContext(SidebarContext) as any;
 
 	let variantChange = '0.2s linear';
 	let shadow = useColorModeValue('14px 17px 40px 4px rgba(112, 144, 176, 0.08)', 'unset');

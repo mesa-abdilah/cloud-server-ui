@@ -7,6 +7,7 @@ import Network from 'views/admin/network';
 import Volume from 'views/admin/volume';
 import ObjectStorage from 'views/admin/objectStorage';
 import Monitoring from 'views/admin/monitoring';
+import SignIn from 'views/auth/signIn';
 
 const routes = [
   {
@@ -56,6 +57,14 @@ const routes = [
     icon: <Iconify icon="carbon:cloud-monitoring" width={24} height={24} style={{ color: 'inherit' }} />,
     component: <Monitoring />,
     hidden: false,
+  },
+  {
+    name: 'Sign In',
+    layout: '/auth',
+    path: '/sign-in',
+    icon: <Iconify icon="iconoir:user" width={24} height={24} style={{ color: 'inherit' }} />,
+    component: <SignIn />,
+    hidden: true,
   },
   {
     name: 'Profile',

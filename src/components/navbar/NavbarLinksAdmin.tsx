@@ -71,9 +71,9 @@ export default function HeaderLinks(props: { secondary: boolean }) {
 				p='6px'
 				align='center'
 				me='6px'>
-                <Flex align='center' justify='center' bg={ethBox} h='29px' w='29px' borderRadius='30px' me='7px'>
-                    <Icon color={ethColor} w='9px' h='14px' as={FaEthereum as any} />
-                </Flex>
+        <Flex align='center' justify='center' bg={ethBox} h='29px' w='29px' borderRadius='30px' me='7px'>
+          <Icon color={ethColor} w='9px' h='14px' as={FaEthereum as any} />
+        </Flex>
 				<Text w='max-content' color={ethColor} fontSize='sm' fontWeight='700' me='6px'>
 					1,924
 					<Text as='span' display={{ base: 'none', md: 'unset' }}>
@@ -85,7 +85,7 @@ export default function HeaderLinks(props: { secondary: boolean }) {
 			<SidebarResponsive routes={routes} />
 			<Menu>
 				<MenuButton p='0px'>
-                    <Icon mt='6px' as={MdNotificationsNone as any} color={navbarIcon} w='18px' h='18px' me='10px' />
+          <Icon mt='6px' as={MdNotificationsNone as any} color={navbarIcon} w='18px' h='18px' me='10px' />
 				</MenuButton>
 				<MenuList
 					boxShadow={shadow}
@@ -118,7 +118,7 @@ export default function HeaderLinks(props: { secondary: boolean }) {
 
 			<Menu>
 				<MenuButton p='0px'>
-                    <Icon mt='6px' as={MdInfoOutline as any} color={navbarIcon} w='18px' h='18px' me='10px' />
+          <Icon mt='6px' as={MdInfoOutline as any} color={navbarIcon} w='18px' h='18px' me='10px' />
 				</MenuButton>
 				<MenuList
 					boxShadow={shadow}
@@ -171,15 +171,15 @@ export default function HeaderLinks(props: { secondary: boolean }) {
 					h='18px'
 					w='18px'
 					color={navbarIcon}
-                    as={(colorMode === 'light' ? IoMdMoon : IoMdSunny) as any}
-                />
+            as={(colorMode === 'light' ? IoMdMoon : IoMdSunny) as any}
+          />
 			</Button>
 			<Menu>
 				<MenuButton p='0px'>
 					<Avatar
 						_hover={{ cursor: 'pointer' }}
 						color='white'
-						name='Adela Parkson'
+						name='Admin'
 						bg='#11047A'
 						size='sm'
 						w='40px'
@@ -198,7 +198,7 @@ export default function HeaderLinks(props: { secondary: boolean }) {
 							fontSize='sm'
 							fontWeight='700'
 							color={textColor}>
-							👋&nbsp; Hey, Adela
+							👋&nbsp; Hey, Admin
 						</Text>
 					</Flex>
 					<Flex flexDirection='column' p='10px'>
@@ -213,7 +213,8 @@ export default function HeaderLinks(props: { secondary: boolean }) {
 							_focus={{ bg: 'none' }}
 							color='red.400'
 							borderRadius='8px'
-							px='14px'>
+							px='14px'
+							onClick={() => window.location.href = '/auth/sign-in'}>
 							<Text fontSize='sm'>Log out</Text>
 						</MenuItem>
 					</Flex>

@@ -1,19 +1,26 @@
 // Chakra imports
-import { Flex, useColorModeValue } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 
 // Custom components
-import { CodanCloudLogo } from 'components/icons/Icons';
 import { HSeparator } from 'components/separator/Separator';
+import { Image } from '@chakra-ui/react';
+import logo from 'assets/img/logo/logo.png';
 
 export function SidebarBrand(props: { collapsed?: boolean }) {
     const { collapsed } = props;
-	//   Chakra color mode
-	let logoColor = useColorModeValue('navy.700', 'white');
 
     return (
         <Flex alignItems='center' flexDirection='column'>
-            <CodanCloudLogo h={collapsed ? '26px' : '26px'} w={collapsed ? '38px' : '175px'} my='20px' color={logoColor} />
-            <HSeparator mb='20px' />
+          <Image
+            src={logo}
+            alt='CodanCloud'
+            width={collapsed ? 20 : 40}
+            height={collapsed ? 20 : 40}
+            style={{
+                objectFit: 'contain'
+            }}
+          />
+          <HSeparator mb='20px' />
         </Flex>
     );
 }
