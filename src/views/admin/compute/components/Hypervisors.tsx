@@ -135,7 +135,7 @@ export default function Hypervisors() {
             <Text color={textColor} fontSize='lg' fontWeight='700'>
               Resource Usage per Node
             </Text>
-            <Button size='sm' leftIcon={<MdRefresh />} onClick={handleRefresh}>
+            <Button size='sm' leftIcon={<Icon as={MdRefresh as any} />} onClick={handleRefresh}>
               Refresh
             </Button>
           </Flex>
@@ -191,7 +191,7 @@ export default function Hypervisors() {
               <Tr key={hv.id}>
                 <Td borderColor={borderColor}>
                   <Flex align='center'>
-                    <Icon as={MdDns} color='brand.500' me='10px' />
+                    <Icon as={MdDns as any} color='brand.500' me='10px' />
                     <Text color={textColor} fontSize='sm' fontWeight='700'>
                       {hv.hostname}
                     </Text>

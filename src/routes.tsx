@@ -1,10 +1,12 @@
 import { Icon as Iconify } from '@iconify/react';
 // Admin Imports
 import MainDashboard from 'views/admin/default';
-import NFTMarketplace from 'views/admin/marketplace';
 import Profile from 'views/admin/profile';
-import DataTables from 'views/admin/dataTables';
 import Compute from 'views/admin/compute';
+import Network from 'views/admin/network';
+import Volume from 'views/admin/volume';
+import ObjectStorage from 'views/admin/objectStorage';
+import Monitoring from 'views/admin/monitoring';
 
 const routes = [
   {
@@ -28,7 +30,7 @@ const routes = [
     layout: '/admin',
     icon: <Iconify icon="iconoir:network" width={24} height={24} style={{ color: 'inherit' }} />,
     path: '/network',
-    component: <DataTables />,
+    component: <Network />,
     hidden: false,
   },
   {
@@ -36,7 +38,7 @@ const routes = [
     layout: '/admin',
     path: '/volume',
     icon: <Iconify icon="hugeicons:hard-drive" width={24} height={24} style={{ color: 'inherit' }} />,
-    component: <DataTables />,
+    component: <Volume />,
     hidden: false,
   },
   {
@@ -44,7 +46,7 @@ const routes = [
     layout: '/admin',
     path: '/object-storage',
     icon: <Iconify icon="streamline-plump:database" width={24} height={24} style={{ color: 'inherit' }} />,
-    component: <DataTables />,
+    component: <ObjectStorage />,
     hidden: false,
   },
   {
@@ -52,7 +54,7 @@ const routes = [
     layout: '/admin',
     path: '/system-monitoring-logging',
     icon: <Iconify icon="carbon:cloud-monitoring" width={24} height={24} style={{ color: 'inherit' }} />,
-    component: <DataTables />,
+    component: <Monitoring />,
     hidden: false,
   },
   {

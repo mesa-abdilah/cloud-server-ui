@@ -157,10 +157,10 @@ export default function Keypairs() {
             SSH Keypairs
           </Text>
           <HStack>
-            <Button leftIcon={<MdFileUpload />} variant='outline' onClick={onImportOpen}>
+            <Button leftIcon={<Icon as={MdFileUpload as any} />} variant='outline' onClick={onImportOpen}>
               Import Key
             </Button>
-            <Button leftIcon={<MdAdd />} variant='brand' onClick={onGenerateOpen}>
+            <Button leftIcon={<Icon as={MdAdd as any} />} variant='brand' onClick={onGenerateOpen}>
               Generate Key
             </Button>
           </HStack>
@@ -181,7 +181,7 @@ export default function Keypairs() {
               <Tr key={key.id}>
                 <Td borderColor={borderColor}>
                   <Flex align='center'>
-                    <Icon as={MdVpnKey} color='brand.500' me='10px' />
+                    <Icon as={MdVpnKey as any} color='brand.500' me='10px' />
                     <Text color={textColor} fontSize='sm' fontWeight='700'>
                       {key.name}
                     </Text>
@@ -206,15 +206,15 @@ export default function Keypairs() {
                   <Menu>
                     <MenuButton
                       as={IconButton}
-                      icon={<MdMoreVert />}
+                      icon={<Icon as={MdMoreVert as any} />}
                       variant='ghost'
                       size='sm'
                       aria-label='Options'
                     />
                     <MenuList>
-                      <MenuItem icon={<MdLink />} onClick={onAssignOpen}>Assign to Instance</MenuItem>
-                      <MenuItem icon={<MdDownload />}>Download Public Key</MenuItem>
-                      <MenuItem icon={<MdDelete />} color='red.500' onClick={() => handleDelete(key.id)}>Delete</MenuItem>
+                      <MenuItem icon={<Icon as={MdLink as any} />} onClick={onAssignOpen}>Assign to Instance</MenuItem>
+                      <MenuItem icon={<Icon as={MdDownload as any} />}>Download Public Key</MenuItem>
+                      <MenuItem icon={<Icon as={MdDelete as any} />} color='red.500' onClick={() => handleDelete(key.id)}>Delete</MenuItem>
                     </MenuList>
                   </Menu>
                 </Td>
